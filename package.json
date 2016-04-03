@@ -1,6 +1,6 @@
 {
   "name": "coding-net",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Open API for Coding.net",
   "main": "dist/index.js",
   "scripts": {
@@ -13,18 +13,15 @@
     "url": "https://git.coding.net/willin/coding-net.git"
   },
   "keywords": [
-    "hapi",
-    "plugin",
-    "auth",
-    "redis",
-    "session"
+    "api",
+    "coding"
   ],
   "author": "Willin Wang",
   "license": "MIT",
   "bugs": {
-    "url": "https://git.coding.net/willin/coding-net/issues"
+    "url": "https://coding.net/u/willin/p/coding-net/issues"
   },
-  "homepage": "https://git.coding.net/willin/coding-net#readme",
+  "homepage": "https://coding.net/u/willin/p/coding-net#readme",
   "devDependencies": {
     "babel-cli": "^6.6.5",
     "babel-eslint": "^5.0.0",
