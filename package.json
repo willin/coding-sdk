@@ -1,7 +1,7 @@
 {
-  "name": "coding-net",
+  "name": "coding-sdk",
   "version": "0.1.1",
-  "description": "Open API for Coding.net",
+  "description": "Open API SDK for Coding.net",
   "main": "dist/index.js",
   "scripts": {
     "start": "npm run compile",
