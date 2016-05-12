@@ -1,6 +1,6 @@
 {
   "name": "coding-sdk",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Open API SDK for Coding.net",
   "main": "dist/index.js",
   "scripts": {

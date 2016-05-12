@@ -1,24 +1,24 @@
-# Coding API
+# Coding SDK for Node.js
 ## 安装和引入
 ### 安装
 
 ```
-npm install coding-net --save
+npm install coding-sdk --save
 ```
 
 ### 引用
 ES5:
 
 ```js
-var coding = require('coding-net');
+var coding = require('coding-sdk');
 ```
 
 ES6:
 
 ```js
-import coding from 'coding-net';
+import coding from 'coding-sdk';
 // 或
-import { user, tweet } from 'coding-net';
+import { user, tweet } from 'coding-sdk';
 ```
 
 ## 使用说明
