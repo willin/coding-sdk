@@ -13,7 +13,7 @@ ES5:
 var coding = require('coding-sdk');
 ```
 
-ES6:
+ES7:
 
 ```js
 import coding from 'coding-sdk';
@@ -35,7 +35,7 @@ coding.user('willin').then(function(data) {
 });
 ```
 
-ES6 Example：
+ES7 Example：
 
 ```js
 // User
@@ -121,7 +121,7 @@ npm run compile
 // 执行
 babel-node examples/user.js
 // 或
-babel-node examples/user.es6
+babel-node examples/user.es7
 babel-node examples/tweet.js
-babel-node examples/tweet.es6
+babel-node examples/tweet.es7
 ```
