@@ -6,8 +6,6 @@
 
 ![npm](https://img.shields.io/npm/dt/coding-net.svg)
 
-
-
 ## 安装和引入
 
 ### 安装
@@ -136,6 +134,11 @@ babel-node examples/tweet.js
 babel-node examples/tweet.es7
 ```
 
+## CHANGELOG
+
+> 2016-06-17 加入Lazyload
+
+如果想进一步了解`ES7`接口调用封装，可以参考我的另一个项目`阿里云SDK`： https://coding.net/u/willin/p/waliyun/git
 
 ## License
 
