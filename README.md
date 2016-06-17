@@ -1,5 +1,15 @@
 # Coding SDK for Node.js
+
+![npm](https://img.shields.io/npm/v/coding-sdk.svg) ![npm](https://img.shields.io/npm/dm/coding-sdk.svg) ![npm](https://img.shields.io/npm/dt/coding-sdk.svg)
+
+旧版（coding-net）
+
+![npm](https://img.shields.io/npm/dt/coding-net.svg)
+
+
+
 ## 安装和引入
+
 ### 安装
 
 ```
@@ -125,3 +135,12 @@ babel-node examples/user.es7
 babel-node examples/tweet.js
 babel-node examples/tweet.es7
 ```
+
+
+## License
+
+MIT
+
+通过支付宝捐赠：
+
+![qr](https://cloud.githubusercontent.com/assets/1890238/15489630/fccbb9cc-2193-11e6-9fed-b93c59d6ef37.png)
