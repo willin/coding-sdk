@@ -122,8 +122,8 @@ ES7 Example：
 参考 `examples`目录。
 
 ```
-// 安装babel-node
-npm install -g babel-node
+// 安装babel-cli
+npm install -g babel-cli
 // 编译
 npm run compile
 // 执行
