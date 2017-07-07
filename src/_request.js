@@ -1,4 +1,4 @@
-import request from 'request';
+const request = require('request');
 
 const getDefer = () => {
   const deferred = {};
