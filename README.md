@@ -1,144 +1,119 @@
-# Coding SDK for Node.js
+# Coding SDK for Node.js and Browser
 
-![npm](https://img.shields.io/npm/v/coding-sdk.svg) ![npm](https://img.shields.io/npm/dm/coding-sdk.svg) ![npm](https://img.shields.io/npm/dt/coding-sdk.svg)
+[![github](https://img.shields.io/github/followers/willin.svg?style=social&label=Follow)](https://github.com/willin) [![npm](https://img.shields.io/npm/v/coding-sdkn.svg)](https://npmjs.org/package/coding-sdkn) [![npm](https://img.shields.io/npm/dt/coding-sdkn.svg)](https://npmjs.org/package/coding-sdkn) [![codecov](https://codecov.io/gh/willin/coding-sdk/branch/master/graph/badge.svg)](https://codecov.io/gh/willin/coding-sdk) [![Travis-CI](https://travis-ci.org/willin/coding-sdk.svg?branch=master)](https://travis-ci.org/willin/coding-sdk) [![codebeat badge](https://codebeat.co/badges/49922bb9-ef93-4286-9fd0-3c2f0d595f3c)](https://codebeat.co/projects/github-com-airdwing-node-dwing-common-master) [![API Doc](https://doclets.io/willin/coding-sdk/master.svg)](https://doclets.io/willin/coding-sdk/master)
 
-旧版（coding-net）
+[TOC]
 
-![npm](https://img.shields.io/npm/dt/coding-net.svg)
+## 安装
 
-## 安装和引入
-
-### 安装
-
-```
-npm install coding-sdk --save
+```bash
+yarn add coding-sdk
+# or npm i -S coding-sdk
 ```
 
-### 引用
-ES5:
+本项目中使用 `camelCase` 驼峰命名法则。
+
+
+## Scope 说明
+
+socpe 参数应传入数组如： `['user', 'project', 'team']`
+
+scope 名称 | 说明 | 授权
+:--| -- | :--:
+user | 授权获取用户信息（用户名称，头像，tag，email，动态 ） | 读
+user:email | 授权获取用户的email ） | 读
+notification | 授权读取通知信息，包含email通知 | 读写
+social | 授权读取冒泡列表，好友列表 | 读
+social:tweet | 授权发送冒泡，冒泡操作（点赞、评论、删除） | 读写
+social:message | 授权读取、发送私信、私信语音 | 读写
+project | 授权项目信息、项目列表，仓库信息，公钥列表、成员，任务列表 | 读
+project:members | 授权项目管理者增、删、改项目成员，退出项目 | 读写
+project:task | 授权任务操作，包含增、删、改 | 读写
+project:file | 授权文件，包含增、删、改 | 读写
+project:depot | 获取 commit 信息，分支操作，MR/PR, LineNotes, fork, webhook 等操作 | 读写
+project:key | 授权操作部署公钥、个人公钥 | 读写
+team | 获取团队相关基本信息 | 读
+
+## Oauth 使用 示例
 
 ```js
-var coding = require('coding-sdk');
-```
-
-ES7:
-
-```js
-import coding from 'coding-sdk';
-// 或
-import { user, tweet } from 'coding-sdk';
-```
-
-## 使用说明
-### coding.user('username') 用户信息
-参数：
-- username: 用户名（Global Key)，下文中如遇用户名，均相同。
-
-ES5 Example：
-
-```js
-// User
-coding.user('willin').then(function(data) {
-  console.log(data);
+const SDK = require('coding-sdk');
+// 初始化实例：
+const coding = new SDK({
+  clientId: 'xxx',
+  clientSecret: 'xxx',
+  callback: 'http://localhost/coding/callback'
 });
+
+// 获取 OAuth 鉴权链接 URL
+console.log(coding.url());
+// 如： https://coding.net/oauth_authorize.html?client_id=xxx&redirect_uri=xxx&response_type=code&scope=user
+// 登录后跳转回 callback URL，获取其中的 code 字段
+
+// 注意包裹在 async 内， 或者用 Promise.then(res=>{ console.log(res.data) }) 来获取返回 json 结果
+const { data } = await coding.get('oauth/access_token', {
+  grant_type: 'authorization_code',
+  code: 'xxxxxx'
+});
+/*
+{ access_token: 'xxxxx',
+  refresh_token: 'xxxxx',
+  expires_in: '864000' }
+*/
 ```
 
-ES7 Example：
+## Token 使用 示例
 
 ```js
-// User
-(async ()=>{
-  const user = await coding.user('willin');
-  console.log(user);
-})();
+const coding = new SDK({
+  user: 'willin',
+  token: 'xxxxxx'
+});
+
+const { data } = await coding.delete('user/XXX/project/XXX/task/XXX');
+/*
+{ code: 0, data: true }
+*/
 ```
 
-结果：
+## 一些公开接口 使用 示例
 
 ```js
+const coding = new SDK();
+
+const { data } = await coding.get('user/key/willin')
+/*
 {
-  tags_str: 'Mac, Node.js, 极客, 技术风向标, 全栈攻城狮',
-  tags: '9,12,31,32,38',
-  job_str: '打杂',
-  job: 6,
-  sex: 0,
-  birthday: '1989-06-03',
-  location: '江苏 南京',
-  company: '南京物联传感',
-  slogan: 'To be Willin is to be willing.',
-  introduction: '',
-  avatar: 'https://dn-coding-net-production-static.qbox.me/e87b264d88631de777ecfe2abb602de6.jpg',
-  gravatar: '',
-  lavatar: 'https://dn-coding-net-production-static.qbox.me/e87b264d88631de777ecfe2abb602de6.jpg',
-  created_at: 1413940756000,
-  last_logined_at: 1459669263000,
-  last_activity_at: 1459686053606,
-  global_key: 'willin',
-  name: 'willin',
-  name_pinyin: '',
-  updated_at: 1459669254000,
-  path: '/u/willin',
-  status: 1,
-  is_member: 0,
-  id: 36560,
-  points_left: 0.54,
-  follows_count: 1,
-  fans_count: 2,
-  tweets_count: 0,
-  followed: false,
-  follow: false
+  code: 0,
+  data: { ... }
 }
+*/
 ```
 
-### coding.user.projects('username', options) 用户公开项目
-参数：
-- username: 用户名
-- options:
-  - page: 页码，默认`1`
-  - pageSize: 每页条数，默认`10`
-  - type: 类型，默认`joined`。 参与：`joined`，收藏：`stared`
+## 补充示例
 
-### coding.user.topic('username', options) 用户参与话题
-参数：
-- username: 用户名
-- options:
-  - extraInfo: 附加信息，默认`1`
-  - page: 页码，默认`1`
-  - pageSize: 每页条数，默认`10`
+### 获取 OAuth 登录地址
 
-### coding.user.activities('username', options) 用户公开动态
-参数：
-- username: 用户名
-- options:
-  - type: 类型，默认`all`。全部：`all`，项目相关：`project`，冒泡相关：`tweet`。
-
-### coding.tweet('username', options) 冒泡
-参数：
-- username: 用户名
-- options:
-  - type: 类型，默认`my`。TA自己的：`my`，TA赞过的：`liked`，TA评论过的：`commented`。
-
-## 示例
-参考 `examples`目录。
-
-```
-// 安装babel-cli
-npm install -g babel-cli
-// 编译
-npm run compile
-// 执行
-babel-node examples/user.js
-// 或
-babel-node examples/user.es7
-babel-node examples/tweet.js
-babel-node examples/tweet.es7
+```js
+coding.url();
 ```
 
-## CHANGELOG
+### 获取 access_token
 
-> 2016-06-17 加入Lazyload
-
-如果想进一步了解`ES7`接口调用封装，可以参考我的另一个项目`阿里云SDK`： https://coding.net/u/willin/p/waliyun/git
+```js
+const data = await coding.get('oauth/access_token', {
+  grantType: 'authorization_code',
+  code: 'xxxxxx'
+}).then(res=>res.data);
+/*
+返回数据格式:
+{
+  access_token: "xxxxxxx",
+  refresh_token: "xxxxxx",
+  expires_in: "86382817"
+}
+*/
+```
 
 ## License
 
