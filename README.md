@@ -2,6 +2,10 @@
 
 [![github](https://img.shields.io/github/followers/willin.svg?style=social&label=Follow)](https://github.com/willin) [![npm](https://img.shields.io/npm/v/coding-sdk.svg)](https://npmjs.org/package/coding-sdk) [![npm](https://img.shields.io/npm/dt/coding-sdk.svg)](https://npmjs.org/package/coding-sdk) [![codecov](https://codecov.io/gh/willin/coding-sdk/branch/master/graph/badge.svg)](https://codecov.io/gh/willin/coding-sdk) [![Travis-CI](https://travis-ci.org/willin/coding-sdk.svg?branch=master)](https://travis-ci.org/willin/coding-sdk) [![codebeat badge](https://codebeat.co/badges/d5086648-bfd1-422a-a89f-d8cb76590433)](https://codebeat.co/projects/github-com-willin-coding-sdk-master)
 
+> 已经疯狂得不能用代码行数（总计`56`行，包含空行和debug）来衡量该项目了，代码仅有 `1,375`字节（净化后）。
+
+五十六个民族五十六朵花。啦啦啦~
+
 [TOC]
 
 ## 安装
