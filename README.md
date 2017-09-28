@@ -1,6 +1,6 @@
-# Coding SDK for Node.js and Browser
+# Coding SDK
 
-[![github](https://img.shields.io/github/followers/willin.svg?style=social&label=Follow)](https://github.com/willin) [![npm](https://img.shields.io/npm/v/coding-sdkn.svg)](https://npmjs.org/package/coding-sdkn) [![npm](https://img.shields.io/npm/dt/coding-sdkn.svg)](https://npmjs.org/package/coding-sdkn) [![codecov](https://codecov.io/gh/willin/coding-sdk/branch/master/graph/badge.svg)](https://codecov.io/gh/willin/coding-sdk) [![Travis-CI](https://travis-ci.org/willin/coding-sdk.svg?branch=master)](https://travis-ci.org/willin/coding-sdk) [![codebeat badge](https://codebeat.co/badges/49922bb9-ef93-4286-9fd0-3c2f0d595f3c)](https://codebeat.co/projects/github-com-airdwing-node-dwing-common-master) [![API Doc](https://doclets.io/willin/coding-sdk/master.svg)](https://doclets.io/willin/coding-sdk/master)
+[![github](https://img.shields.io/github/followers/willin.svg?style=social&label=Follow)](https://github.com/willin) [![npm](https://img.shields.io/npm/v/coding-sdk.svg)](https://npmjs.org/package/coding-sdk) [![npm](https://img.shields.io/npm/dt/coding-sdk.svg)](https://npmjs.org/package/coding-sdk) [![codecov](https://codecov.io/gh/willin/coding-sdk/branch/master/graph/badge.svg)](https://codecov.io/gh/willin/coding-sdk) [![Travis-CI](https://travis-ci.org/willin/coding-sdk.svg?branch=master)](https://travis-ci.org/willin/coding-sdk) [![codebeat badge](https://codebeat.co/badges/d5086648-bfd1-422a-a89f-d8cb76590433)](https://codebeat.co/projects/github-com-willin-coding-sdk-master)
 
 [TOC]
 

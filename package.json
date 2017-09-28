@@ -3,6 +3,11 @@
   "version": "3.0.0",
   "description": "Open API SDK for Coding.net",
   "main": "src/index.js",
+  "scripts": {
+    "test": "nyc ava -vs",
+    "coverage": "nyc report --reporter=text-lcov > coverage.lcov | codecov",
+    "start": "nyc --reporter html ava -vs && open ./.nyc_output/index.html"
+  },
   "engines": {
     "node": ">= 8.0.0"
   },
@@ -10,11 +15,42 @@
   "author": "Willin Wang <willin@willin.org>",
   "license": "MIT",
   "devDependencies": {
+    "ava": "^0.22.0",
     "browserify": "^14.4.0",
+    "codecov": "^2.3.0",
     "eslint": "^4.7.2",
-    "eslint-config-dwing": "^1.1.0"
+    "eslint-config-dwing": "^1.1.0",
+    "nyc": "^11.2.1"
   },
   "dependencies": {
     "axios": "^0.16.2"
+  },
+  "keywords": [
+    "api",
+    "sdk",
+    "open",
+    "coding",
+    "coding.net"
+  ],
+  "ava": {
+    "files": [
+      "test/**/*.js",
+      "!**/_*/*.js",
+      "!**/_*.js"
+    ]
+  },
+  "nyc": {
+    "lines": 80,
+    "check-coverage": true,
+    "reporter": [
+      "text-lcov"
+    ],
+    "report-dir": "./.nyc_output",
+    "exclude": [
+      "test",
+      "test{,-*}.js",
+      "**/*.test.js",
+      "**/__tests__/**"
+    ]
   }
 }

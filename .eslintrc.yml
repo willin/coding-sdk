@@ -1,4 +1,4 @@
 root: true
 extends: 'dwing'
 rules:
- 'max-len': 200
+ 'max-len': [1, 150]
