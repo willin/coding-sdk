@@ -1,7 +1,7 @@
 const axios = require('axios');
 
 const camel = (obj = {}) => Object.keys(obj).reduce((result, key) => {
-  result[key.replace(/([A-Z])/g, m => `_${m.toLowerCase()}`)] = obj[key];// eslint-disable-line no-param-reassign
+  result[key === 'pageSize' ? key : key.replace(/([A-Z])/g, m => `_${m.toLowerCase()}`)] = obj[key]; // eslint-disable-line no-param-reassign
   return result;
 }, {});
 
