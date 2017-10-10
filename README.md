@@ -121,7 +121,7 @@ const data = await coding.get('oauth/access_token', {
 
 ## License
 
-MIT
+Apache 2.0  
 
 通过支付宝捐赠：
 
