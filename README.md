@@ -20,7 +20,7 @@ yarn add coding-sdk
 
 ## Scope 说明
 
-socpe 参数应传入数组如： `['user', 'project', 'team']`
+scope 参数应传入数组如： `['user', 'project', 'team']`
 
 scope 名称 | 说明 | 授权
 :--| -- | :--:
@@ -121,7 +121,7 @@ const data = await coding.get('oauth/access_token', {
 
 ## License
 
-Apache 2.0  
+Apache 2.0
 
 通过支付宝捐赠：
 
